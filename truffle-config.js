@@ -22,11 +22,10 @@
  *
  */
 
-// const HDWallet = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+require('dotenv').config()
+const HDWallet = require('truffle-hdwallet-provider');
+const infuraId = process.env.INFURA_ID;
+const mnemonic = process.env.MNEMONIC;
 
 module.exports = {
   /**
@@ -52,6 +51,14 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
     },
 
+    rinkeby: {
+      provider: function() {
+        return new HDWallet(mnemonic, "https://rinkeby.infura.io/v3/" + infuraId);
+      },
+      network_id: "4"
+      // gas: 30000000,
+      // gasPrice: 11
+    },
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port

@@ -4,10 +4,13 @@ build
 
 # production
 /build
+/node_modules
+/app/node_modules
+/.idea
 
 # misc
 .DS_Store
-.env.local
+.env
 .env.development.local
 .env.test.local
 .env.production.local
